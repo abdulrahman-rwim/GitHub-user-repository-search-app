@@ -1,0 +1,128 @@
+@forward "reset";
+$clr-dark: #161b22;
+$clr-very-dark: #0d1117;
+$clr-light: #c9d1d9;
+$clr-very-light: #fff;
+$clr-accent: #2ea043;
+$clr-light-blue: #58a6ff;
+*::-webkit-scrollbar {
+  width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #0d1117;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $clr-light-blue;
+  border-radius: 10px;
+  border: 3px solid #0d1117;
+}
+body {
+  background: $clr-very-dark;
+  color: $clr-light;
+}
+a {
+  display: inline-block;
+  color: $clr-light-blue;
+  font-size: clamp(0.8rem, 7vw, 1.2rem);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.icon {
+  margin-right: 5px;
+}
+.repositories {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding: 1rem;
+  &__input {
+    background: $clr-dark;
+    padding: 2rem;
+    border-radius: 6px;
+    display: flex;
+
+    gap: 1rem;
+    border-bottom: 1px solid #30363d;
+    input {
+      width: 100%;
+      border: 1px solid #30363d;
+      color: $clr-light;
+      background: transparent;
+      font-family: inherit;
+      padding: 0.8rem;
+      border-radius: inherit;
+      &::placeholder {
+        color: rgba($color: $clr-light, $alpha: 0.5);
+      }
+      &:focus {
+        outline: 1px solid $clr-light-blue;
+      }
+    }
+  }
+  &__btn {
+    border: none;
+    background: $clr-accent;
+    color: $clr-very-light;
+    width: 100%;
+    max-width: 150px;
+    border-radius: inherit;
+    cursor: pointer;
+    transition: opacity 250ms;
+    @media (max-width: 400px) {
+      max-width: 100px;
+
+      font-size: 0.8rem;
+    }
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  &__data {
+    animation: opacity 1s;
+    background: $clr-dark;
+    padding: 2rem;
+  }
+  &__repo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    @media (max-width: 600px) {
+      flex-direction: column;
+      align-items: start;
+    }
+  }
+  &__repo:not(:last-child) {
+    border-bottom: 1px solid #30363d;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    gap: 20px;
+    padding-top: 1rem;
+  }
+  &__description {
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 700px;
+  }
+}
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
